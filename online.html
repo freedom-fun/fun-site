@@ -16,9 +16,9 @@
             background-color: #000;
             color: #fff;
             -ms-user-select: none; 
-	        -moz-user-select: none; 
-	        -webkit-user-select: none; 
-	        user-select: none;
+            -moz-user-select: none; 
+            -webkit-user-select: none; 
+            user-select: none;
         }
         .navbar {
             background: linear-gradient(90deg, #000, #ff6600);
@@ -34,13 +34,14 @@
             max-width: 1200px;
             margin: 0 auto;
             text-decoration: none;
+            flex-wrap: wrap;
         }
         .nav-btn {
             background: rgba(0, 0, 0, 0.7);
             color: #ff6600;
             border: none;
-            padding: 10px 20px;
-            margin: 0 10px;
+            padding: 10px 15px;
+            margin: 5px;
             cursor: pointer;
             font-size: 16px;
             font-weight: bold;
@@ -58,37 +59,70 @@
         }
         .hero {
             text-align: center;
-            padding: 60px 20px;
+            padding: 30px 15px;
             background: linear-gradient(135deg, #000, #333);
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             border-radius: 10px;
             box-shadow: 0 8px 24px rgba(255, 102, 0, 0.2);
         }
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
+            font-size: 28px;
+            margin-bottom: 15px;
             color: #ff6600;
             text-shadow: 0 2px 4px rgba(255, 102, 0, 0.5);
         }
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 15px;
         }
         .footer {
             text-align: center;
-            padding: 60px 20px;
+            padding: 30px 15px;
             background: linear-gradient(135deg, #000, #333);
-            margin-right: 150px;
-            margin-left: 150px;
+            margin: 20px 15px;
             border-radius: 10px;
             box-shadow: 0 8px 24px rgba(255, 102, 0, 0.2);
         }
         .ssilka {
             text-decoration: none;
             color: #ff6600;
-            }
+            font-size: 14px;
+            word-break: break-all;
+        }
         .footer p {
             color: #ff6600;
+            margin-bottom: 10px;
+        }
+        iframe {
+            max-width: 100%;
+        }
+        .mrl-vote-server {
+            display: block;
+            margin: 20px auto;
+        }
+
+        /* Десктопные стили */
+        @media (min-width: 768px) {
+            .nav-container {
+                flex-wrap: nowrap;
+            }
+            .nav-btn {
+                padding: 10px 20px;
+                margin: 0 10px;
+            }
+            .hero {
+                padding: 60px 20px;
+                margin-bottom: 40px;
+            }
+            .hero h1 {
+                font-size: 48px;
+                margin-bottom: 20px;
+            }
+            .footer {
+                padding: 60px 20px;
+                margin: 40px 150px;
+            }
         }
     </style>
 </head>
@@ -104,14 +138,14 @@
     <div class="container">
         <section class="hero">
             <h1>Онлайн</h1>
-            <iframe src="//misterlauncher.org/monitoring/server_id/89695/color/blue/status/Freedom/" height="22" frameborder="0" scrolling="no" style="border-radius: 60px;"></iframe>
+            <iframe src="//misterlauncher.org/monitoring/server_id/89695/color/blue/status/Freedom/" height="22" frameborder="0" scrolling="no" style="border-radius: 60px; width: 100%;"></iframe>
             <h1>Статистика</h1>
-            <iframe src="https://misterlauncher.org/server_chart/89695/" width="100%" height="300" frameborder="0" ></iframe>
+            <iframe src="https://misterlauncher.org/server_chart/89695/" width="100%" height="300" frameborder="0"></iframe>
             <a href="https://misterlauncher.org/" class="mrl-vote-server" data-vote-id="89695" data-vote-type="server"><span id="mrl-vote-title"><img src="//misterlauncher.org/images/logo.png" alt="" /></span><span id="mrl-vote-counter"><u></u><i></i></span></a><script type="text/javascript" src="//misterlauncher.org/js/site/vote_widget.js"></script>
         </section>
     </div>
     <div class="footer">
-        <p>Telegram-канал: <a href="https://t.me/fd_minec" class ="ssilka">https://t.me/fd_minec</a></p>
+        <p>Telegram-канал: <a href="https://t.me/fd_minec" class="ssilka">https://t.me/fd_minec</a></p>
         <p>Discord: <a href="https://discord.gg/GQrUQKW4xa" class="ssilka">https://discord.gg/GQrUQKW4xa</a></p>
         <p>VK-сообщество: <a class="ssilka" href="https://vk.com/fd_minec">https://vk.com/fd_minec</a></p>
     </div>
