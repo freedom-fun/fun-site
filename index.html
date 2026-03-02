@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
     <link rel="icon" href="photo.ico" type="image/x-icon" width="144" height="256">
+    <link rel="preload" href="css/main.css" as="style" onload="this.rel = 'stylesheet'">
     <style>
         * {
             margin: 0;
@@ -267,7 +268,7 @@
     <div class="container">
         <section class="hero">
             <h1>Добро пожаловать на фан-сайт <br>Майнкрафт сервера </h1>
-            <img src="freedom.jpg" alt="Главное изображение" height="450" width="398">
+            <img src="freedom.jpg" alt="Главное изображение" height="450" width="398" fetchpriority="high">
             <p class="sig">Адрес (IP): go.fdm.su</p>
             <p>Этот сайт посвящен Майнкрафт серверу Freedom. Здесь вы найдете интересную информацию, фотографии и многое другое. Наслаждайтесь просмотром!</p>
         </section>
@@ -292,8 +293,8 @@
         <div class="content-block">
             <div class="text-block">
                 <h2>Версии:</h2>
-                <p>Сервер - 1.20.2.</p>
-                <p>Поддержка клиентов - 1.7-1.21.7, кроме Forge 1.20.5-1.21.2.</p>
+                <p>Сервер - 1.20.6.</p>
+                <p>Поддержка клиентов - 1.7-1.21.7.</p>
             </div>
             <div class="image-block">
                 <img src="ad.png" height="500" width="450" alt="Изображение 2">
@@ -303,7 +304,6 @@
     
     <div class="vote-buttons">
         <a href="https://misterlauncher.org/vote/89695/" target="_blank"><img src="//misterlauncher.org/images/widgets/vote.png" alt="Голосовать за сервер Freedom" title="Голосовать за сервер Freedom" width="200" height="60"/></a>
-        <a href="https://tmonitoring.com/server/freedom1/"><img width="200" height="60" src="https://tmonitoring.com/b/64296/?i=2"/></a>
     </div>
     
     <div class="footer">
@@ -316,9 +316,6 @@
         <p class="silk"><span class="meow">GitHub фан-сайта:</span></br> <a href="https://github.com/freedom-fun/fun-site" class="ssilka">https://github.com/freedom-fun/fun-site</a></p>
         <p class="silk"><span class="meow">Nyx (заморожен):</span></br> <a href="https://nyx-app.ru/#/dashboard/accept-invite/oDTpeutumixj" class="ssilka">https://nyx-app.ru/#/dashboard/accept-invite/oDTpeutumixj</a></p>
     </div>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
     <p style="text-align: right; font-family: 'Rubik Mono One', monospace; color: grey">by kiman</p>
 </body>
 </html>

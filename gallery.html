@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="photo.ico" type="image/x-icon" width="144" height="256">
     <title>Фотогаллерея</title>
+    <link rel="preload" href="css/main.css" as="style" onload="this.rel = 'stylesheet'">
     <style>
         * {
             margin: 0;
@@ -172,7 +173,7 @@
         </section>
     </div>
     <div class="photos">
-        <img src="photo1.jpg" alt="Фото 1">
+        <img src="photo1.jpg" alt="Фото 1" fetchpriority="high">
         <img src="photo2.jpg" alt="Фото 2">
         <img src="photo3.jpg" alt="Фото 3">
         <img src="photo4.jpg" alt="Фото 4">
@@ -199,9 +200,6 @@
         <p class="silk"><span class="meow">GitHub фан-сайта:</span></br> <a href="https://github.com/freedom-fun/fun-site" class="ssilka">https://github.com/freedom-fun/fun-site</a></p>
         <p class="silk"><span class="meow">Nyx (заморожен):</span></br> <a href="https://nyx-app.ru/#/dashboard/accept-invite/oDTpeutumixj" class="ssilka">https://nyx-app.ru/#/dashboard/accept-invite/oDTpeutumixj</a></p>
     </div>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
 <p style="text-align: right; font-family: 'Rubik Mono One', monospace; color: grey">by kiman</p>
 </body>
 </html>
