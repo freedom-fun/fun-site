@@ -2,10 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="photo.ico" type="image/x-icon" width="144" height="256">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="icon" href="photo.ico" type="image/x-icon">
     <title>История Freedom</title>
-    <link rel="preload" href="css/main.css" as="style" onload="this.rel = 'stylesheet'">
     <style>
         * {
             margin: 0;
@@ -50,6 +49,7 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
             text-decoration: none;
+            display: inline-block;
         }
         .nav-btn:hover {
             background: #ff6600;
@@ -125,78 +125,218 @@
             text-align: center;
             text-shadow: -2px 2px 0 #A5A5A5;
             font-family: 'Rubik Mono One', monospace;
+            font-size: 2rem;
+            margin-bottom: 10px;
         }
         .name_epoha {
             text-align: center;
             text-shadow: 2px 2px 0 #FF0000;
             font-family: 'Rubik Mono One', monospace;
-     
+            margin-bottom: 20px;
+        }
+        .glava-container {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 102, 0, 0.1);
+            border-left: 4px solid #ff6600;
+            border-radius: 8px;
+        }
+        .glava-title {
+            font-family: 'Rubik Mono One', monospace;
+            font-size: 1.5rem;
+            color: #ff6600;
+            margin-bottom: 15px;
+        }
+        .glava-text {
+            font-family: 'Rubik Mono One', monospace;
+            line-height: 1.6;
+            font-size: 1rem;
+            color: #ddd;
+        }
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2rem;
+            color: #ff6600;
+        }
+        .error {
+            text-align: center;
+            padding: 50px;
+            color: #ff4444;
+            background: rgba(255, 68, 68, 0.1);
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
     <div class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-btn active">Главная</a>
+            <a href="index.html" class="nav-btn">Главная</a>
             <a href="online.html" class="nav-btn">Онлайн</a>
             <a href="gallery.html" class="nav-btn">Фотогаллерея</a>
-            <a href="history.html" class="nav-btn">История</a>
+            <a href="history.html" class="nav-btn active">История</a>
         </div>
     </div>
     <h1 style="text-align:center; font-family: 'Rubik Mono One', monospace; margin-top: 10px; margin-bottom: 5px">Повесть временных <span style="color:#FF2400; font-family: 'Rubik Mono One', monospace;">безумий</span></h1>  
     <div class="container">
-        <div class="sidebar">
-            <button class="tab-button active" data-tab="1">0</button>
-            <button class="tab-button" data-tab="2">1</button>
-            <button class="tab-button" data-tab="3">2</button>
-            <button class="tab-button" data-tab="4">3</button>
-            <button class="tab-button" data-tab="5">4</button>
-            <button class="tab-button" data-tab="6">5</button>
-            <button class="tab-button" data-tab="7">6</button>
-            <button class="tab-button" data-tab="8">7</button>
-            <button class="tab-button" data-tab="9">8</button>
-            <button class="tab-button" data-tab="10">9</button>
+        <div class="sidebar" id="sidebar">
+            <div class="loading" style="padding: 20px; font-size: 14px;">Загрузка...</div>
         </div>
-        <div class="content">
-            <div class="tab-content active" id="1"><h2 class="epoha">Эпоха нулевая</h2></br><h3 class="name_epoha">"До нашей эры"<h3>
-</br>
-<p style="font-family: 'Rubik Mono One', monospace;">
-       Все началось примерно весной 2022, когда игрок shalapay стал активно играть с ГАЧИ (GACHI_MAN - Ошибка в нике появилась еще очень давно и является следствием некомпетентности самого игрока так как тот хотел быть MEN, позже, когда ошибка обнаружилась - она стала фишкой, нетипичностью. Гачи Ман - манит в гачи).
-       Они играли на нескольких мирах на  ноутбуке shalapay, так как тот мог потянуть майнкрафт без нареканий в качестве сервера. Позже с ними стал играть игрок Эрик(часто менял ники будь то детектив или резиновый детектив, но основным его ником был GEROLDEN). 
-       Идея о сервере появилась в воздухе, когда  компания стала ссорится, активно ломая постройки и фермы друг друга, мир за миром, сессия за сессией все скатывалось с анархию всех против всех с выгоранием... Идея третьего судьи будто витала в воздухе и она нашла свое исполнение когда в конце 2022 (сентябрь) на зиму 2023 года, так как сервер Freedom пережил несколько обновлений и сборок и исправлений, то сказать точную дату нельзя. 
-       Однако активно играть "банда" shalapay'я в сентябре 2022 года...
-</p>
-</div>
-            <div class="tab-content" id="2"><h2>Эпоха 1</h2></div>
-            <div class="tab-content" id="3"><h2>Эпоха 2</h2></div>
-            <div class="tab-content" id="4"><h2>Эпоха 3</h2></div>
-            <div class="tab-content" id="5"><h2>Эпоха 4</h2></div>
-            <div class="tab-content" id="6"><h2>Эпоха 5</h2></div>
-            <div class="tab-content" id="7"><h2>Эпоха 6</h2></div>
-            <div class="tab-content" id="8"><h2>Эпоха 7</h2></div>
-            <div class="tab-content" id="9"><h2>Эпоха 8</h2></div>
-            <div class="tab-content" id="10"><h2>Эпоха 9</h2></div>
+        <div class="content" id="content">
+            <div class="loading">Загрузка истории...</div>
         </div>
     </div>
+    <p style="text-align: right; font-family: 'Rubik Mono One', monospace; color: grey">by kiman</p>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        let historyData = [];
+
+        async function loadHistory() {
+            try {
+                const response = await fetch('history.json');
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                historyData = await response.json();
+                if (!Array.isArray(historyData)) throw new Error('Данные не являются массивом');
+                
+                const epohas = [...new Set(historyData.map(item => item.epoha))];
+                epohas.sort((a, b) => parseInt(a) - parseInt(b));
+                
+                renderSidebar(epohas);
+                renderContent(epohas);
+                
+                if (epohas.length > 0) {
+                    switchTab(epohas[0]);
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                document.getElementById('sidebar').innerHTML = '<div class="error">Ошибка загрузки history.json</div>';
+                document.getElementById('content').innerHTML = `
+                    <div class="error">
+                        <h3>❌ Не удалось загрузить history.json</h3>
+                        <p>Убедитесь, что файл находится в той же папке и имеет правильный формат.</p>
+                        <p>Детали: ${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function renderSidebar(epohas) {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.innerHTML = '';
+            
+            epohas.forEach(epoha => {
+                const button = document.createElement('button');
+                button.className = 'tab-button';
+                button.setAttribute('data-tab', epoha);
+                
+                let displayNumber = epoha;
+                if (epoha === '0') displayNumber = '0';
+                button.textContent = displayNumber;
+                
+                button.addEventListener('click', function() {
+                    switchTab(epoha);
+                });
+                
+                sidebar.appendChild(button);
+            });
+        }
+
+        function renderContent(epohas) {
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = '';
+            
+            epohas.forEach(epoha => {
+                const tabDiv = document.createElement('div');
+                tabDiv.className = 'tab-content';
+                tabDiv.id = epoha;
+                
+                const glavyForEpoha = historyData.filter(item => item.epoha === epoha);
+                glavyForEpoha.sort((a, b) => parseInt(a.glava) - parseInt(b.glava));
+                
+                let epohaTitle = '';
+                let epohaSubtitle = '';
+                
+                switch(epoha) {
+                    case '0':
+                        epohaTitle = 'Эпоха нулевая';
+                        epohaSubtitle = '"До нашей эры"';
+                        break;
+                    case '1':
+                        epohaTitle = 'Эпоха первая';
+                        epohaSubtitle = '"Зарождение"';
+                        break;
+                    case '2':
+                        epohaTitle = 'Эпоха вторая';
+                        epohaSubtitle = '"Расцвет"';
+                        break;
+                    case '3':
+                        epohaTitle = 'Эпоха третья';
+                        epohaSubtitle = '"Испытания"';
+                        break;
+                    case '4':
+                        epohaTitle = 'Эпоха четвертая';
+                        epohaSubtitle = '"Перемены"';
+                        break;
+                    case '5':
+                        epohaTitle = 'Эпоха пятая';
+                        epohaSubtitle = '"Восстание"';
+                        break;
+                    case '6':
+                        epohaTitle = 'Эпоха шестая';
+                        epohaSubtitle = '"Возрождение"';
+                        break;
+                    case '7':
+                        epohaTitle = 'Эпоха седьмая';
+                        epohaSubtitle = '"Единство"';
+                        break;
+                    case '8':
+                        epohaTitle = 'Эпоха восьмая';
+                        epohaSubtitle = '"Новый путь"';
+                        break;
+                    case '9':
+                        epohaTitle = 'Эпоха девятая';
+                        epohaSubtitle = '"Финал"';
+                        break;
+                    default:
+                        epohaTitle = `Эпоха ${epoha}`;
+                        epohaSubtitle = 'Исторический период';
+                }
+                
+                const titleHTML = `
+                    <h2 class="epoha">${epohaTitle}</h2>
+                    <h3 class="name_epoha">"${epohaSubtitle}"</h3>
+                `;
+                tabDiv.innerHTML = titleHTML;
+                
+                glavyForEpoha.forEach(glavaItem => {
+                    const glavaDiv = document.createElement('div');
+                    glavaDiv.className = 'glava-container';
+                    glavaDiv.innerHTML = `
+                        <div class="glava-title">Глава ${glavaItem.glava}</div>
+                        <div class="glava-text">${glavaItem.text}</div>
+                    `;
+                    tabDiv.appendChild(glavaDiv);
+                });
+                
+                contentDiv.appendChild(tabDiv);
+            });
+        }
+
+        function switchTab(tabId) {
             const buttons = document.querySelectorAll('.tab-button');
             const contents = document.querySelectorAll('.tab-content');
-            function switchTab(tabId) {
-                contents.forEach(content => content.classList.remove('active'));
-                buttons.forEach(button => button.classList.remove('active'));
-                const activeContent = document.getElementById(tabId);
-                if (activeContent) activeContent.classList.add('active');
-                const activeButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
-                if (activeButton) activeButton.classList.add('active');
-            }
-            buttons.forEach(button => {
-                button.addEventListener('click', function() {
-                    switchTab(this.getAttribute('data-tab'));
-                });
-            });
-        });
+            
+            contents.forEach(content => content.classList.remove('active'));
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            const activeContent = document.getElementById(tabId);
+            if (activeContent) activeContent.classList.add('active');
+            
+            const activeButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+            if (activeButton) activeButton.classList.add('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', loadHistory);
     </script>
-    <p style="text-align: right; font-family: 'Rubik Mono One', monospace; color: grey">by kiman</p>
 </body>
 </html>
