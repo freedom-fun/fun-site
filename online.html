@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="photo.ico" type="image/x-icon" width="144" height="256">
     <title>Онлайн</title>
+    <link rel="preload" href="css/vote_widget.css" as="style" onload="this.rel = 'stylesheet'">
     <link rel="preload" href="css/main.css" as="style" onload="this.rel = 'stylesheet'">
     <style>
         * {
@@ -133,7 +134,6 @@
             text-align: center;
             color: #8A2BE2;
         }
-        
     </style>
 </head>
 <body>
@@ -152,7 +152,11 @@
             <iframe src="//misterlauncher.org/monitoring/server_id/89695/color/blue/status/Freedom/" height="22" frameborder="0" scrolling="no" style="border-radius: 60px; width: 100%;"></iframe>
             <h1>Статистика</h1>
             <iframe src="https://misterlauncher.org/server_chart/89695/" width="100%" height="300" frameborder="0"></iframe>
-            <a href="https://misterlauncher.org/" class="mrl-vote-server" data-vote-id="89695" data-vote-type="server"><span id="mrl-vote-title"><img src="//misterlauncher.org/images/logo.png" alt="" /></span><span id="mrl-vote-counter"><u></u><i></i></span></a><script type="text/javascript" src="//misterlauncher.org/js/site/vote_widget.js"></script>
+            <a href="https://misterlauncher.org/" class="mrl-vote-server" data-vote-id="89695" data-vote-type="server">
+                <span id="mrl-vote-title">
+                    <img src="//misterlauncher.org/images/logo.png" alt="" width="20" height="20">!
+                </span><span id="mrl-vote-counter"><u></u><i></i></span>
+            </a>
         </section>
     </div>
     <div class="footer">
@@ -194,5 +198,6 @@
         </p>
     </div>
 <p style="text-align: right; font-family: 'Rubik Mono One', monospace; color: grey">by kiman</p>
+    <script type="text/javascript" src="//misterlauncher.org/js/site/vote_widget.js"></script>
 </body>
 </html>
