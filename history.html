@@ -167,6 +167,122 @@
             background: rgba(255, 68, 68, 0.1);
             border-radius: 8px;
         }
+        .footer {
+            text-align: center;
+            padding: 0;
+            margin: 20px 15px;
+            border-radius: 16px;
+            background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+            border: 1px solid rgba(255, 102, 0, 0.25);
+            box-shadow: 0 8px 32px rgba(255, 102, 0, 0.15), inset 0 1px 0 rgba(255, 102, 0, 0.1);
+            overflow: hidden;
+        }
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.8rem 1.8rem;
+            padding: 1.8rem 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(2px);
+        }
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 0.5rem;
+        }
+        .footer-brand .brand-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6600, #ff9933);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.05em;
+        }
+        .footer-brand .brand-sub {
+            font-size: 0.7rem;
+            color: #aa7a4a;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem 1.4rem;
+            padding: 0.5rem 1.4rem;
+            background: rgba(255, 102, 0, 0.04);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 102, 0, 0.08);
+        }
+        .footer-nav a {
+            color: #cc8844;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.3rem 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
+        .footer-nav a:hover {
+            color: #ff9933;
+            border-bottom-color: #ff6600;
+            transform: translateY(-1px);
+            text-shadow: 0 0 12px rgba(255, 102, 0, 0.2);
+        }
+        .footer-copy {
+            text-align: center;
+            padding: 0.9rem 1rem 0.7rem;
+            border-top: 1px solid rgba(255, 102, 0, 0.08);
+            font-size: 0.75rem;
+            color: #663311;
+            letter-spacing: 0.05em;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .footer-copy span {
+            color: #884422;
+        }
+        @media (max-width: 700px) {
+            .footer-inner {
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 1.2rem 1rem;
+            }
+            .footer-brand {
+                margin-right: 0;
+            }
+            .footer-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.4rem 1rem;
+                padding: 0.5rem 1rem;
+                border-radius: 30px;
+                width: 100%;
+            }
+            .footer-nav a {
+                font-size: 0.9rem;
+                white-space: nowrap;
+            }
+            .footer-copy {
+                font-size: 0.65rem;
+                padding: 0.6rem 0.5rem 0.5rem;
+            }
+        }
+        @media (max-width: 450px) {
+            .footer-nav a {
+                font-size: 0.8rem;
+            }
+        }
+        .footer p {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -187,7 +303,29 @@
             <div class="loading">Загрузка истории...</div>
         </div>
     </div>
-    <p style="text-align: right; font-family: 'Rubik Mono One', monospace; color: grey">by kiman</p>
+    <div class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="brand-name">FREEDOM</span>
+                <span class="brand-sub">фан-сайт</span>
+            </div>
+            
+            <nav class="footer-nav">
+                <a href="https://fdm.su/">Официальный сайт</a>
+                <a href="https://fdm.trademc.org/">Зеркало</a>
+                <a href="https://max.ru/join/rmM-n0uWRx37Mi2OF-lM5UXaVCfybX5Fp4UwGACc3N4">Макс</a>
+                <a href="https://vk.ru/fd_minec">ВК</a>
+                <a href="https://t.me/addlist/rKuMRWEkqtU5Y2Iy">Telegram</a>
+                <a href="https://discord.gg/GQrUQKW4xa">Discord</a>
+                <a href="https://t.me/funfreedomnews">ТГК</a>
+                <a href="https://github.com/freedom-fun/fun-site">GitHub</a>
+         
+            </nav>
+        </div>
+        <div class="footer-copy">
+            <span>by kiman</span>
+        </div>
+    </div>
 
     <script>
         let historyData = [];
