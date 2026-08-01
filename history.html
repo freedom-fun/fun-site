@@ -5,29 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <link rel="icon" href="photo.ico" type="image/x-icon">
     <title>История Freedom</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
     <link rel="preload" href="history.json" as="fetch" crossorigin>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', 'Arial', sans-serif;
         }
         body {
-            background-color: #000;
-            color: #fff;
-            -ms-user-select: none; 
-            -moz-user-select: none; 
-            -webkit-user-select: none; 
-            user-select: none; 
+            background-color: #0a1a2b;
+            color: #e8d5b5;
+            -ms-user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
         }
         .navbar {
-            background: linear-gradient(90deg, #000, #ff6600);
+            background: linear-gradient(90deg, #0a1a2b, #9f6b3a);
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(159, 107, 58, 0.4);
         }
         .nav-container {
             display: flex;
@@ -38,69 +42,92 @@
             flex-wrap: wrap;
         }
         .nav-btn {
-            background: rgba(0, 0, 0, 0.7);
-            color: #ff6600;
+            background: rgba(10, 26, 43, 0.8);
+            color: #c69c6d;
             border: none;
             padding: 10px 15px;
             margin: 5px;
             cursor: pointer;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 600;
             border-radius: 5px;
             transition: all 0.3s ease;
             text-transform: uppercase;
             text-decoration: none;
             display: inline-block;
+            letter-spacing: 0.03em;
         }
         .nav-btn:hover {
-            background: #ff6600;
-            color: #000;
+            background: #9f6b3a;
+            color: #0a1a2b;
             transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(255, 102, 0, 0.4);
+            box-shadow: 0 6px 12px rgba(159, 107, 58, 0.5);
             text-decoration: none;
         }
         .container {
             display: flex;
             min-height: calc(100vh - 70px);
+            gap: 0;
         }
         .sidebar {
             width: 200px;
-            background-color: #111;
-            border-right: 2px solid #ff6600;
+            background: linear-gradient(180deg, #0d1f30, #152d42);
+            border-right: 2px solid rgba(159, 107, 58, 0.3);
+            flex-shrink: 0;
         }
         .tab-button {
             display: block;
             width: 100%;
-            padding: 15px 10px;
-            background-color: #222;
-            color: #ff6600;
+            padding: 18px 10px;
+            background: transparent;
+            color: #b58c62;
             border: none;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid rgba(159, 107, 58, 0.1);
             cursor: pointer;
-            font-size: 35px;
+            font-size: 32px;
             text-align: center;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             font-family: 'Rubik Mono One', monospace;
+            position: relative;
+        }
+        .tab-button::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 0;
+            background: #c69c6d;
+            transition: height 0.3s ease;
         }
         .tab-button:hover {
-            background-color: #333;
-            color: #ff9900;
+            background: rgba(159, 107, 58, 0.1);
+            color: #e0b68a;
         }
         .tab-button.active {
-            background-color: #ff6600;
-            color: #000;
-            font-weight: bold;
+            background: rgba(159, 107, 58, 0.15);
+            color: #e8d5b5;
+        }
+        .tab-button.active::after {
+            height: 60%;
         }
         .content {
             flex: 1;
-            padding: 20px;
+            padding: 30px 35px;
             overflow-y: auto;
+            background: rgba(10, 26, 43, 0.3);
         }
         .tab-content {
             display: none;
+            animation: fadeIn 0.4s ease;
         }
         .tab-content.active {
             display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         @media (max-width: 768px) {
             .container {
@@ -109,72 +136,131 @@
             .sidebar {
                 width: 100%;
                 border-right: none;
-                border-bottom: 2px solid #ff6600;
+                border-bottom: 2px solid rgba(159, 107, 58, 0.3);
                 display: flex;
                 overflow-x: auto;
+                background: #0d1f30;
             }
             .tab-button {
                 flex-shrink: 0;
                 width: auto;
-                min-width: 80px;
+                min-width: 70px;
+                padding: 12px 15px;
                 text-align: center;
                 border-bottom: none;
-                border-right: 1px solid #333;
+                border-right: 1px solid rgba(159, 107, 58, 0.1);
+                font-size: 24px;
+            }
+            .tab-button::after {
+                display: none;
+            }
+            .tab-button.active {
+                background: rgba(159, 107, 58, 0.2);
+                border-bottom: 2px solid #c69c6d;
+            }
+            .content {
+                padding: 20px;
             }
         }
         .epoha {
             text-align: center;
-            text-shadow: -2px 2px 0 #A5A5A5;
             font-family: 'Rubik Mono One', monospace;
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            color: #e8d5b5;
+            letter-spacing: 0.05em;
+            text-shadow: 0 2px 20px rgba(159, 107, 58, 0.2);
         }
         .name_epoha {
             text-align: center;
-            text-shadow: 2px 2px 0 #FF0000;
             font-family: 'Rubik Mono One', monospace;
-            margin-bottom: 20px;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #b58c62;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+            font-weight: 400;
         }
         .glava-container {
-            margin-bottom: 30px;
-            padding: 20px;
-            background: rgba(255, 102, 0, 0.1);
-            border-left: 4px solid #ff6600;
-            border-radius: 8px;
+            margin-bottom: 25px;
+            padding: 22px 25px;
+            background: rgba(159, 107, 58, 0.06);
+            border-left: 3px solid #9f6b3a;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+        }
+        .glava-container:hover {
+            background: rgba(159, 107, 58, 0.1);
+            transform: translateX(4px);
         }
         .glava-title {
             font-family: 'Rubik Mono One', monospace;
-            font-size: 1.5rem;
-            color: #ff6600;
-            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: #c69c6d;
+            margin-bottom: 12px;
+            letter-spacing: 0.03em;
         }
         .glava-text {
-            font-family: 'Rubik Mono One', monospace;
-            line-height: 1.6;
+            font-family: 'Inter', 'Arial', sans-serif;
+            line-height: 1.9;
             font-size: 1rem;
-            color: #ddd;
+            color: #d4c4a8;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+        }
+        .glava-text strong {
+            color: #e0b68a;
+            font-weight: 600;
+        }
+        .glava-text em {
+            color: #c69c6d;
+            font-style: italic;
         }
         .loading {
             text-align: center;
             padding: 50px;
-            font-size: 1.2rem;
-            color: #ff6600;
+            font-size: 1.1rem;
+            color: #b58c62;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+        .loading::after {
+            content: '...';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+        @keyframes dots {
+            0% { content: ''; }
+            25% { content: '.'; }
+            50% { content: '..'; }
+            75% { content: '...'; }
         }
         .error {
             text-align: center;
-            padding: 50px;
-            color: #ff4444;
-            background: rgba(255, 68, 68, 0.1);
-            border-radius: 8px;
+            padding: 40px;
+            color: #e06060;
+            background: rgba(224, 96, 96, 0.08);
+            border-radius: 12px;
+            border: 1px solid rgba(224, 96, 96, 0.2);
+        }
+        .error h3 {
+            font-family: 'Rubik Mono One', monospace;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #e06060;
+        }
+        .error p {
+            color: #d4c4a8;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
         .footer {
             text-align: center;
             padding: 0;
             margin: 20px 15px;
             border-radius: 16px;
-            background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
-            border: 1px solid rgba(255, 102, 0, 0.25);
-            box-shadow: 0 8px 32px rgba(255, 102, 0, 0.15), inset 0 1px 0 rgba(255, 102, 0, 0.1);
+            background: linear-gradient(145deg, #0d1f30, #1a3045);
+            border: 1px solid rgba(159, 107, 58, 0.35);
+            box-shadow: 0 8px 32px rgba(159, 107, 58, 0.2), inset 0 1px 0 rgba(159, 107, 58, 0.15);
             overflow: hidden;
         }
         .footer-inner {
@@ -184,7 +270,7 @@
             align-items: center;
             gap: 0.8rem 1.8rem;
             padding: 1.8rem 2rem;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(10, 26, 43, 0.4);
             backdrop-filter: blur(2px);
         }
         .footer-brand {
@@ -195,8 +281,8 @@
         }
         .footer-brand .brand-name {
             font-size: 1.4rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #ff6600, #ff9933);
+            font-weight: 800;
+            background: linear-gradient(135deg, #c69c6d, #e0b68a);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -204,10 +290,11 @@
         }
         .footer-brand .brand-sub {
             font-size: 0.7rem;
-            color: #aa7a4a;
+            color: #a8855e;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             opacity: 0.7;
+            font-weight: 500;
         }
         .footer-nav {
             display: flex;
@@ -216,12 +303,12 @@
             align-items: center;
             gap: 0.5rem 1.4rem;
             padding: 0.5rem 1.4rem;
-            background: rgba(255, 102, 0, 0.04);
+            background: rgba(159, 107, 58, 0.08);
             border-radius: 50px;
-            border: 1px solid rgba(255, 102, 0, 0.08);
+            border: 1px solid rgba(159, 107, 58, 0.15);
         }
         .footer-nav a {
-            color: #cc8844;
+            color: #b58c62;
             text-decoration: none;
             font-size: 1rem;
             font-weight: 500;
@@ -232,22 +319,23 @@
             letter-spacing: 0.02em;
         }
         .footer-nav a:hover {
-            color: #ff9933;
-            border-bottom-color: #ff6600;
+            color: #e0b68a;
+            border-bottom-color: #9f6b3a;
             transform: translateY(-1px);
-            text-shadow: 0 0 12px rgba(255, 102, 0, 0.2);
+            text-shadow: 0 0 12px rgba(159, 107, 58, 0.3);
         }
         .footer-copy {
             text-align: center;
             padding: 0.9rem 1rem 0.7rem;
-            border-top: 1px solid rgba(255, 102, 0, 0.08);
+            border-top: 1px solid rgba(159, 107, 58, 0.12);
             font-size: 0.75rem;
-            color: #663311;
+            color: #7a5f3e;
             letter-spacing: 0.05em;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(10, 26, 43, 0.3);
+            font-weight: 400;
         }
         .footer-copy span {
-            color: #884422;
+            color: #a8855e;
         }
         @media (max-width: 700px) {
             .footer-inner {
@@ -279,6 +367,19 @@
             .footer-nav a {
                 font-size: 0.8rem;
             }
+            .epoha {
+                font-size: 1.6rem;
+            }
+            .glava-container {
+                padding: 16px 18px;
+            }
+            .glava-title {
+                font-size: 1rem;
+            }
+            .glava-text {
+                font-size: 0.9rem;
+                line-height: 1.7;
+            }
         }
         .footer p {
             display: none;
@@ -294,13 +395,13 @@
             <a href="history.html" class="nav-btn active">История</a>
         </div>
     </div>
-    <h1 style="text-align:center; font-family: 'Rubik Mono One', monospace; margin-top: 10px; margin-bottom: 5px">Повесть временных <span style="color:#FF2400; font-family: 'Rubik Mono One', monospace;">безумий</span></h1>  
+    <h1 style="text-align:center; font-family: 'Rubik Mono One', monospace; margin-top: 12px; margin-bottom: 8px; color: #e8d5b5; font-size: clamp(1.4rem, 4vw, 2.2rem); letter-spacing: 0.03em;">Повесть временных <span style="color:#c69c6d; font-family: 'Rubik Mono One', monospace;">безумий</span></h1>  
     <div class="container">
         <div class="sidebar" id="sidebar">
             <div class="loading" style="padding: 20px; font-size: 14px;">Загрузка...</div>
         </div>
         <div class="content" id="content">
-            <div class="loading">Загрузка истории...</div>
+            <div class="loading">Загрузка истории</div>
         </div>
     </div>
     <div class="footer">
@@ -319,7 +420,6 @@
                 <a href="https://discord.gg/GQrUQKW4xa">Discord</a>
                 <a href="https://t.me/funfreedomnews">ТГК</a>
                 <a href="https://github.com/freedom-fun/fun-site">GitHub</a>
-         
             </nav>
         </div>
         <div class="footer-copy">
@@ -353,7 +453,7 @@
                     <div class="error">
                         <h3>❌ Не удалось загрузить history.json</h3>
                         <p>Убедитесь, что файл находится в той же папке и имеет правильный формат.</p>
-                        <p>Детали: ${error.message}</p>
+                        <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.7;">Детали: ${error.message}</p>
                     </div>
                 `;
             }
@@ -367,10 +467,8 @@
                 const button = document.createElement('button');
                 button.className = 'tab-button';
                 button.setAttribute('data-tab', epoha);
-                
-                let displayNumber = epoha;
-                if (epoha === '0') displayNumber = '0';
-                button.textContent = displayNumber;
+                button.textContent = epoha === '0' ? '0' : epoha;
+                button.title = `Эпоха ${epoha}`;
                 
                 button.addEventListener('click', function() {
                     switchTab(epoha);
@@ -392,58 +490,24 @@
                 const glavyForEpoha = historyData.filter(item => item.epoha === epoha);
                 glavyForEpoha.sort((a, b) => parseInt(a.glava) - parseInt(b.glava));
                 
-                let epohaTitle = '';
-                let epohaSubtitle = '';
+                const epohaNames = {
+                    '0': ['Эпоха нулевая', 'До нашей эры'],
+                    '1': ['Эпоха первая', 'До бедрожье'],
+                    '2': ['Эпоха вторая', 'Расцвет'],
+                    '3': ['Эпоха третья', 'Испытания'],
+                    '4': ['Эпоха четвертая', 'Перемены'],
+                    '5': ['Эпоха пятая', 'Восстание'],
+                    '6': ['Эпоха шестая', 'Возрождение'],
+                    '7': ['Эпоха седьмая', 'Единство'],
+                    '8': ['Эпоха восьмая', 'Новый путь'],
+                    '9': ['Эпоха девятая', 'Финал']
+                };
                 
-                switch(epoha) {
-                    case '0':
-                        epohaTitle = 'Эпоха нулевая';
-                        epohaSubtitle = 'До нашей эры';
-                        break;
-                    case '1':
-                        epohaTitle = 'Эпоха первая';
-                        epohaSubtitle = 'До бедрожье';
-                        break;
-                    case '2':
-                        epohaTitle = 'Эпоха вторая';
-                        epohaSubtitle = 'Расцвет';
-                        break;
-                    case '3':
-                        epohaTitle = 'Эпоха третья';
-                        epohaSubtitle = 'Испытания';
-                        break;
-                    case '4':
-                        epohaTitle = 'Эпоха четвертая';
-                        epohaSubtitle = 'Перемены';
-                        break;
-                    case '5':
-                        epohaTitle = 'Эпоха пятая';
-                        epohaSubtitle = 'Восстание';
-                        break;
-                    case '6':
-                        epohaTitle = 'Эпоха шестая';
-                        epohaSubtitle = 'Возрождение';
-                        break;
-                    case '7':
-                        epohaTitle = 'Эпоха седьмая';
-                        epohaSubtitle = 'Единство';
-                        break;
-                    case '8':
-                        epohaTitle = 'Эпоха восьмая';
-                        epohaSubtitle = 'Новый путь';
-                        break;
-                    case '9':
-                        epohaTitle = 'Эпоха девятая';
-                        epohaSubtitle = 'Финал';
-                        break;
-                    default:
-                        epohaTitle = `Эпоха ${epoha}`;
-                        epohaSubtitle = 'Исторический период';
-                }
+                const [epohaTitle, epohaSubtitle] = epohaNames[epoha] || [`Эпоха ${epoha}`, 'Исторический период'];
                 
                 const titleHTML = `
                     <h2 class="epoha">${epohaTitle}</h2>
-                    <h3 class="name_epoha">"${epohaSubtitle}"</h3>
+                    <h3 class="name_epoha">${epohaSubtitle}</h3>
                 `;
                 tabDiv.innerHTML = titleHTML;
                 
