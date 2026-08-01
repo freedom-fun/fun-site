@@ -5,29 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
     <link rel="icon" href="photo.ico" type="image/x-icon" width="144" height="256">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    
     <link rel="preload" href="css/main.css" as="style" onload="this.rel = 'stylesheet'">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', 'Arial', sans-serif;
         }
         body {
-            background-color: #000;
-            color: #fff;
+            background-color: #0a1a2b;
+            color: #e8d5b5;
             -ms-user-select: none; 
             -moz-user-select: none; 
             -webkit-user-select: none; 
             user-select: none; 
         }
         .navbar {
-            background: linear-gradient(90deg, #000, #ff6600);
+            background: linear-gradient(90deg, #0a1a2b, #9f6b3a);
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(159, 107, 58, 0.4);
         }
         .nav-container {
             display: flex;
@@ -38,60 +42,64 @@
             flex-wrap: wrap;
         }
         .nav-btn {
-            background: rgba(0, 0, 0, 0.7);
-            color: #ff6600;
+            background: rgba(10, 26, 43, 0.8);
+            color: #c69c6d;
             border: none;
             padding: 10px 15px;
             margin: 5px;
             cursor: pointer;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 600;
             border-radius: 5px;
             transition: all 0.3s ease;
             text-transform: uppercase;
             text-decoration: none;
+            letter-spacing: 0.03em;
         }
         .nav-btn:hover {
-            background: #ff6600;
-            color: #000;
+            background: #9f6b3a;
+            color: #0a1a2b;
             transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(255, 102, 0, 0.4);
+            box-shadow: 0 6px 12px rgba(159, 107, 58, 0.5);
             text-decoration: none;
         }
         .hero {
             text-align: center;
             padding: 30px 15px;
-            background: linear-gradient(135deg, #000, #333);
+            background: linear-gradient(135deg, #0a1a2b, #1d2f44);
             margin-bottom: 20px;
             border-radius: 10px;
-            box-shadow: 0 8px 24px rgba(255, 102, 0, 0.2);
+            box-shadow: 0 8px 24px rgba(159, 107, 58, 0.3);
         }
         .hero h1 {
             font-size: 28px;
             margin-bottom: 15px;
-            color: #ff6600;
-            text-shadow: 0 2px 4px rgba(255, 102, 0, 0.5);
+            color: #c69c6d;
+            text-shadow: 0 2px 4px rgba(159, 107, 58, 0.5);
+            font-weight: 800;
+            letter-spacing: -0.02em;
         }
         .hero img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
             margin-bottom: 15px;
-            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.4);
+            box-shadow: 0 4px 12px rgba(159, 107, 58, 0.4);
         }
         .hero p {
             font-size: 16px;
             max-width: 800px;
             margin: 0 auto;
-            line-height: 1.5;
+            line-height: 1.6;
+            font-weight: 400;
         }
         .content-block {
             display: grid;
             margin: 20px 0;
-            background: rgba(30, 30, 30, 0.7);
+            background: rgba(25, 45, 65, 0.8);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(159, 107, 58, 0.3);
             transition: transform 0.3s ease;
         }
         .content-block:hover {
@@ -104,12 +112,16 @@
         .text-block h2 {
             font-size: 24px;
             margin-bottom: 15px;
-            color: #ff6600;
+            color: #c69c6d;
+            font-weight: 700;
+            letter-spacing: -0.01em;
         }
         .text-block p {
             font-size: 14px;
-            line-height: 1.6;
+            line-height: 1.7;
             margin-bottom: 10px;
+            color: #d4c4a8;
+            font-weight: 400;
         }
         .image-block {
             padding: 15px;
@@ -119,21 +131,23 @@
             width: 100%;
             height: auto;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
         }
         .full-text {
-            background: linear-gradient(90deg, #000, #222);
+            background: linear-gradient(90deg, #0a1a2b, #1a3045);
             padding: 20px;
             margin: 20px 0;
             border-radius: 10px;
-            box-shadow: 0 8px 24px rgba(255, 102, 0, 0.2);
+            box-shadow: 0 8px 24px rgba(159, 107, 58, 0.3);
         }
         .full-text p {
             font-size: 16px;
-            line-height: 1.6;
+            line-height: 1.7;
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
+            color: #d4c4a8;
+            font-weight: 400;
         }
         .container {
             max-width: 1200px;
@@ -145,9 +159,9 @@
             padding: 0;
             margin: 20px 15px;
             border-radius: 16px;
-            background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
-            border: 1px solid rgba(255, 102, 0, 0.25);
-            box-shadow: 0 8px 32px rgba(255, 102, 0, 0.15), inset 0 1px 0 rgba(255, 102, 0, 0.1);
+            background: linear-gradient(145deg, #0d1f30, #1a3045);
+            border: 1px solid rgba(159, 107, 58, 0.35);
+            box-shadow: 0 8px 32px rgba(159, 107, 58, 0.2), inset 0 1px 0 rgba(159, 107, 58, 0.15);
             overflow: hidden;
         }
         .footer-inner {
@@ -157,19 +171,13 @@
             align-items: center;
             gap: 0.8rem 1.8rem;
             padding: 1.8rem 2rem;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(10, 26, 43, 0.4);
             backdrop-filter: blur(2px);
-        }
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-right: 0.5rem;
         }
         .footer-brand .brand-name {
             font-size: 1.4rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #ff6600, #ff9933);
+            font-weight: 800;
+            background: linear-gradient(135deg, #c69c6d, #e0b68a);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -177,10 +185,11 @@
         }
         .footer-brand .brand-sub {
             font-size: 0.7rem;
-            color: #aa7a4a;
+            color: #a8855e;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             opacity: 0.7;
+            font-weight: 500;
         }
         .footer-nav {
             display: flex;
@@ -189,12 +198,12 @@
             align-items: center;
             gap: 0.5rem 1.4rem;
             padding: 0.5rem 1.4rem;
-            background: rgba(255, 102, 0, 0.04);
+            background: rgba(159, 107, 58, 0.08);
             border-radius: 50px;
-            border: 1px solid rgba(255, 102, 0, 0.08);
+            border: 1px solid rgba(159, 107, 58, 0.15);
         }
         .footer-nav a {
-            color: #cc8844;
+            color: #b58c62;
             text-decoration: none;
             font-size: 1rem;
             font-weight: 500;
@@ -205,31 +214,29 @@
             letter-spacing: 0.02em;
         }
         .footer-nav a:hover {
-            color: #ff9933;
-            border-bottom-color: #ff6600;
+            color: #e0b68a;
+            border-bottom-color: #9f6b3a;
             transform: translateY(-1px);
-            text-shadow: 0 0 12px rgba(255, 102, 0, 0.2);
+            text-shadow: 0 0 12px rgba(159, 107, 58, 0.3);
         }
         .footer-copy {
             text-align: center;
             padding: 0.9rem 1rem 0.7rem;
-            border-top: 1px solid rgba(255, 102, 0, 0.08);
+            border-top: 1px solid rgba(159, 107, 58, 0.12);
             font-size: 0.75rem;
-            color: #663311;
+            color: #7a5f3e;
             letter-spacing: 0.05em;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(10, 26, 43, 0.3);
+            font-weight: 400;
         }
         .footer-copy span {
-            color: #884422;
+            color: #a8855e;
         }
         @media (max-width: 700px) {
             .footer-inner {
                 flex-direction: column;
                 gap: 0.8rem;
                 padding: 1.2rem 1rem;
-            }
-            .footer-brand {
-                margin-right: 0;
             }
             .footer-nav {
                 flex-wrap: wrap;
@@ -254,9 +261,10 @@
             }
         }
         .sig {
-            color: #ff6600;
+            color: #c69c6d;
             margin-bottom: 15px;
             font-size: 24px;
+            font-weight: 700;
             -ms-user-select: all; 
             -moz-user-select: all; 
             -webkit-user-select: all; 
@@ -278,6 +286,7 @@
             .nav-btn {
                 padding: 10px 20px;
                 margin: 0 10px;
+                font-size: 15px;
             }
             .hero {
                 padding: 60px 20px;
@@ -289,7 +298,7 @@
             }
             .hero p {
                 font-size: 18px;
-                line-height: 1.6;
+                line-height: 1.7;
             }
             .content-block {
                 grid-template-columns: repeat(2, 1fr);
@@ -305,7 +314,7 @@
             }
             .text-block p {
                 font-size: 16px;
-                line-height: 1.7;
+                line-height: 1.8;
                 margin-bottom: 15px;
             }
             .image-block {
@@ -340,7 +349,8 @@
         }
         .meow {
             text-align: center;
-            color: #7366bd;
+            color: #b58c62;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -356,14 +366,14 @@
 
     <div class="container">
         <section class="hero">
-            <h1>Добро пожаловать на фан-сайт <br>Майнкрафт сервера </h1>
+            <h1>Добро пожаловать на фан-сайт <br>Майнкрафт сервера</h1>
             <img src="freedom.avif" alt="Главное изображение" height="267" width="398" fetchpriority="high">
             <p class="sig">Адрес (IP): go.fdm.su</p>
             <p>Этот сайт посвящен Майнкрафт серверу Freedom. Здесь вы найдете интересную информацию, фотографии и многое другое. Наслаждайтесь просмотром!</p>
         </section>
 
         <section class="full-text">
-            <p>Freedom - это Майнкрафт сервер где царит творчество. <br>Отсутсвие приватов даёт игрокам большие возможности в строительстве и творческой деятельности.</p>
+            <p>Freedom - это Майнкрафт сервер где царит творчество. <br>Отсутствие приватов даёт игрокам большие возможности в строительстве и творческой деятельности.</p>
         </section>
 
         <div class="content-block">
@@ -373,9 +383,9 @@
             <div class="text-block">
                 <h2>Ключевые особенности сервера:</h2>
                 <p>1. Отсутствие привата.<br>На нашем сервере нет границ и ограничений, поэтому каждый игрок <br>может свободно исследовать мир, строить и выживать.</p>
-                <p>2. Можно сидеть на ступеньках.<br> Наслаждайтесь удобством и комфортом во время игры, используя <br>ступеньки для отдыха и строительства.</p>
-                <p>3. Сортировка инвентаря.<br> Быстрый и удобный доступ к предметам позволит вам сосредоточиться на игре <br> и забыть о беспорядке в инвентаре.</p>
-                <p>4. Сообщения чата выводятся над головой отправителя. <br> Это позволит другим игрокам видеть, кто отправил сообщение,<br> и реагировать на него соответствующим образом.</p>
+                <p>2. Можно сидеть на ступеньках.<br>Наслаждайтесь удобством и комфортом во время игры, используя <br>ступеньки для отдыха и строительства.</p>
+                <p>3. Сортировка инвентаря.<br>Быстрый и удобный доступ к предметам позволит вам сосредоточиться на игре <br>и забыть о беспорядке в инвентаре.</p>
+                <p>4. Сообщения чата выводятся над головой отправителя.<br>Это позволит другим игрокам видеть, кто отправил сообщение,<br>и реагировать на него соответствующим образом.</p>
             </div>
         </div>
 
