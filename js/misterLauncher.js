@@ -1,8 +1,3 @@
-var css = document.createElement( "link" );
-css.setAttribute( "rel","stylesheet" );
-css.setAttribute( "href","//misterlauncher.org/css/vote_widget.css" );
-document.head.appendChild( css );
-
 var id = $(".mrl-vote-server").attr("data-vote-id");
 var type = $(".mrl-vote-server").attr("data-vote-type");
 

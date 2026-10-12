@@ -1,4 +1,10 @@
 @font-face {
+	font-family: 'Inter';
+	src: url(../fonts/Inter-VariableFont_opsz,wght.ttf);
+	font-display: optional;
+}
+
+@font-face {
 	font-family: 'Rubik Mono One';
 	src: url(../fonts/RubikMonoOne-Regular.woff2);
 	font-display: optional;
