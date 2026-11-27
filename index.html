@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <link rel="preload" href="freedom.avif" as="image" fetchpriority="high">
     <link rel="preload" href="css/main.css" as="style" fetchpriority="high" onload="this.rel = 'stylesheet'">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -364,7 +363,10 @@
     <div class="container">
         <section class="hero">
             <h1>Добро пожаловать на фан-сайт <br>Майнкрафт сервера</h1>
-            <img src="freedom.avif" alt="Главное изображение" height="267" width="398" fetchpriority="high">
+            <picture>
+                <source srcset="img/jxl/freedom.jxl" type="image/jxl">
+                <img src="img/avif/freedom.avif" alt="Главное изображение" height="267" width="398" fetchpriority="high">
+            </picture>
             <p class="sig">Адрес (IP): go.fdm.su</p>
             <p>Этот сайт посвящен Майнкрафт серверу Freedom. Здесь вы найдете интересную информацию, фотографии и многое другое. Наслаждайтесь просмотром!</p>
         </section>
@@ -389,7 +391,7 @@
         <div class="content-block">
             <div class="text-block">
                 <h2>Версии:</h2>
-                <p>Сервер - 1.21.5.</p>
+                <p>Сервер - 1.21.8.</p>
                 <p>Поддержка клиентов - 1.7-1.21.11.</p>
             </div>
             <div class="image-block">
@@ -400,7 +402,10 @@
     
     <div class="vote-buttons">
         <a href="https://misterlauncher.org/vote/89695/" target="_blank">
-            <img src="img/vote.avif" alt="Голосовать за сервер Freedom" title="Голосовать за сервер Freedom" width="170" height="60" fetchpriority="low">
+            <picture>
+                <source srcset="img/jxl/vote.jxl" type="image/jxl">
+                <img src="img/avif/vote.avif" alt="Голосовать за сервер Freedom" title="Голосовать за сервер Freedom" width="170" height="60" fetchpriority="low">
+            </picture>
         </a>
     </div>
     
